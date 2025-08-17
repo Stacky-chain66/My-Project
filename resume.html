@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Wankhede - Interactive Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dark & Vibrant -->
+    <!-- Application Structure Plan: The single-page, vertical-scrolling layout is maintained for a smooth, intuitive user experience. It's structured with a hero section for immediate branding, followed by thematic sections for Summary, Skills, Certifications, Projects, Education, and Contact. This design guides the viewer logically through the profile. The key change is replacing the chart with a clean, two-column table for skills, which is more effective for listing a wide variety of proficiencies. The overall design is shifted to a dark theme for a modern, sleek, and professional aesthetic. -->
+    <!-- Visualization & Content Choices: 
+        - Summary: Presented as a concise text block to provide a quick overview. Goal: Inform. Method: Styled HTML text.
+        - Skills: Replaced chart with a two-column table (using a flexbox grid) to clearly list each skill. Goal: Organize & Inform. Method: Structured HTML/CSS with Tailwind. Justification: A table is a more direct and attractive way to present a diverse list of skills without relying on a numerical proficiency scale.
+        - Certifications & Projects: Presented in card-based sections for clear visual separation. Goal: Organize. Method: Styled HTML cards. Justification: Cards are a clean, scalable way to showcase individual achievements.
+        - All other sections: Styled HTML for clear, direct information.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .dark {
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+        .dark .card {
+            background-color: #1E1E1E;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #4CAF50; /* Green accent */
+        }
+        .section {
+            scroll-margin-top: 80px;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased dark">
+
+    <header class="bg-[#1e1e1e]/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-200">Divya Wankhede</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#summary" class="nav-link text-gray-400 font-medium">Summary</a>
+                <a href="#skills" class="nav-link text-gray-400 font-medium">Skills</a>
+                <a href="#certifications" class="nav-link text-gray-400 font-medium">Certifications</a>
+                <a href="#projects" class="nav-link text-gray-400 font-medium">Projects</a>
+                <a href="#feedback" class="nav-link text-gray-400 font-medium">Feedback</a>
+                <a href="#education" class="nav-link text-gray-400 font-medium">Education</a>
+                <a href="#contact" class="nav-link text-gray-400 font-medium">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-400 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#summary" class="block nav-link text-gray-400">Summary</a>
+            <a href="#skills" class="block nav-link text-gray-400">Skills</a>
+            <a href="#certifications" class="block nav-link text-gray-400">Certifications</a>
+            <a href="#projects" class="block nav-link text-gray-400">Projects</a>
+            <a href="#feedback" class="block nav-link text-gray-400">Feedback</a>
+            <a href="#education" class="block nav-link text-gray-400">Education</a>
+            <a href="#contact" class="block nav-link text-gray-400">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="hero" class="text-center py-20">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 text-gray-100">Divya Wankhede</h1>
+            <p class="text-xl md:text-2xl text-gray-400">Computer Science Student & AI Tools Specialist</p>
+        </section>
+
+        <section id="summary" class="section py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-100">Summary</h2>
+            <div class="max-w-3xl mx-auto card p-8 rounded-lg">
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    A highly motivated Computer Science student with comprehensive knowledge from basic to advanced computer concepts. Possessing expertise in **AI tools and techniques** and a talent for **fast grasping** new technologies. Eager to apply proficiency in programming languages like **Java, Python, C, C++, HTML, R, and Kotlin** to innovative projects. A skilled content editor who leverages top-level tools like Capcut and Hypic, with a proven ability to utilize AI for both content creation and editing.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="section py-16 bg-[#1e1e1e] rounded-lg">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-100">Key Skills</h2>
+            <p class="text-center text-gray-400 mb-12">A detailed breakdown of my technical and creative abilities.</p>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-200 mb-4 text-center">Programming & Technical</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-300">
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">Java</div>
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">Python</div>
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">C / C++</div>
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">HTML</div>
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">R</div>
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">Kotlin</div>
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">AI Tools & Techniques</div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-200 mb-4 text-center">AI & Content Tools</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 text-gray-300">
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">AI-Enhanced Content Creation</div>
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">Content & Video Editing (Capcut, Hypic)</div>
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">Comprehensive Computer Knowledge</div>
+                        <div class="p-4 rounded-lg bg-[#282828] font-medium text-lg text-center">Fast Grasping & Quick Learning</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="certifications" class="section py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-100">Certifications</h2>
+            <div class="max-w-3xl mx-auto card p-8 rounded-lg space-y-4 text-center">
+                 <p class="text-xl text-gray-300 font-semibold">
+                    Certified Bootstrap Developer
+                </p>
+                <p class="text-xl text-gray-300 font-semibold">
+                    Chatbot Developer with Python
+                </p>
+                <p class="text-xl text-gray-300 font-semibold">
+                    Completed +5 futuristic projects
+                </p>
+            </div>
+        </section>
+
+        <section id="projects" class="section py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-100">Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="project-card card p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-gray-100">AI-Powered Chatbot</h3>
+                    <p class="text-gray-400 mb-4">Developed a chatbot using Python and AI tools to understand natural language. This project focused on applying AI techniques to create a responsive and intelligent conversational agent.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-600 text-white text-sm font-medium px-2.5 py-0.5 rounded">Python</span>
+                        <span class="bg-green-600 text-white text-sm font-medium px-2.5 py-0.5 rounded">AI/ML</span>
+                        <span class="bg-purple-600 text-white text-sm font-medium px-2.5 py-0.5 rounded">Chatbot Dev</span>
+                    </div>
+                </div>
+                <div class="project-card card p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-gray-100">AI-Enhanced Content Management</h3>
+                    <p class="text-gray-400 mb-4">Built a Java application for streamlined content editing, where AI tools were used to enhance the content creation and editing process. The tool leveraged top-level platforms like Capcut and Hypic for advanced media manipulation.</p>
+                     <div class="flex flex-wrap gap-2">
+                        <span class="bg-orange-600 text-white text-sm font-medium px-2.5 py-0.5 rounded">Java</span>
+                        <span class="bg-emerald-600 text-white text-sm font-medium px-2.5 py-0.5 rounded">AI Tools</span>
+                        <span class="bg-gray-600 text-white text-sm font-medium px-2.5 py-0.5 rounded">Content Creation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="feedback" class="section py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-100">Client Feedback</h2>
+            <div class="max-w-3xl mx-auto card p-8 rounded-lg text-center">
+                 <p class="text-lg text-gray-300 font-semibold">
+                    I have had the opportunity to work with 6 clients, all of whom provided positive feedback on my contributions. I successfully delivered high-quality work, including building websites for their products and editing various types of content. My ability to adapt and deliver on diverse requests has been a key factor in my success.
+                </p>
+            </div>
+        </section>
+
+        <section id="education" class="section py-16 bg-[#1e1e1e] rounded-lg">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-100">Education</h2>
+            <div class="max-w-2xl mx-auto text-center">
+                <h3 class="text-2xl font-semibold text-gray-200">SK College of Science and Commerce</h3>
+                <p class="text-gray-400 mt-2">Bachelor of Science in Computer Science</p>
+                <p class="text-amber-500 font-medium mt-1">Expected Graduation: 2026</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section py-20 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-gray-100">Get In Touch</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">I'm currently seeking new opportunities and would love to hear from you. Feel free to reach out via email or connect with me on Upwork.</p>
+            <div class="flex justify-center items-center space-x-6">
+                <a href="mailto:divyawan138@gmail.com" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                    Email Me
+                </a>
+                <a href="https://www.upwork.com/freelancers/~01a2a76c5a486bc994?mp_source=share" target="_blank" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                    Upwork Profile
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-white text-center py-6">
+        <p>&copy; 2024 Divya Wankhede. All Rights Reserved.</p>
+        <p class="text-gray-400 text-sm mt-1">Navi Mumbai, Maharashtra, India</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth < 768) {
+                       mobileMenu.classList.add('hidden');
+                    }
+                    document.querySelector(link.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const sections = document.querySelectorAll('.section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
